@@ -19,6 +19,9 @@
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
   --color-chart-5: var(--chart-5);
+  --color-badge-available: var(--badge-available);
+  --color-badge-booked: var(--badge-booked);
+  --color-badge-maintenance: var(--badge-maintenance);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
   --color-chart-2: var(--chart-2);
@@ -72,6 +75,9 @@
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
+  --badge-available: oklch(0.7 0.15 130);
+  --badge-booked: oklch(0.5 0.05 250);
+  --badge-maintenance: oklch(0.7 0.15 80);
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -107,6 +113,9 @@
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
+  --badge-available: oklch(0.6 0.15 130);
+  --badge-booked: oklch(0.55 0.05 250);
+  --badge-maintenance: oklch(0.6 0.15 80);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
