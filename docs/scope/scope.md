@@ -10,8 +10,8 @@ A single‑venue padel court booking interface for public walk‑in visitors. Us
 | #   | Feature                                    | Phase      | Status                     |
 | --- | ------------------------------------------ | ---------- | -------------------------- |
 | 1   | Stack & architecture                       | Foundation | existing                   |
-| 2   | Coding standards & tooling                 | Foundation | planned                    |
-| 3   | Design system & UI foundation              | Foundation | planned · needs a decision |
+| 2   | Coding standards & tooling                 | Foundation | in-progress                |
+| 3   | Design system & UI foundation              | Foundation | in-progress                |
 | 4   | Public landing + court selection           | Slice 1    | planned · needs a decision |
 | 5   | Time slot grid (12 slots, 10am–10pm)       | Slice 1    | planned · needs a decision |
 | 6   | Slot selection + pending payment indicator | Slice 1    | planned · needs a decision |
@@ -38,16 +38,16 @@ Next.js 16 (app router), React 19, shadcn/ui with `@base-ui/react`, Tailwind CSS
 Capture conventions from the real project, then install lint, format, and pre‑commit enforcement.
 **Done when:** root `AGENTS.md` reflects the real stack, and lint/format/pre‑commit run clean.
 
-- [ ] Capture conventions + tooling choices: `/audit`
-- [ ] Install the tooling: `/develop tooling`
-- [ ] Check it runs clean: `/test`
+- [x] Capture conventions + tooling choices: `/audit`
+- [x] Install the tooling: `/develop tooling`
+- [x] Check it runs clean: `/test`
 
-### 3. Design system & UI foundation · planned · needs a decision
+### 3. Design system & UI foundation · in-progress
 
 Visual language, layout primitives, and base components so the flows feel cohesive and accessible. Includes color scale, spacing, type scale, and base components (button already exists; need card, input, select, dialog, tooltip for slot grid).
 **Done when:** `design.md` covers type/color/spacing/components, and base components handle focus and keyboard.
 
-- [ ] Design it (spec): `/architect design system & UI foundation`
+- [x] Design it (spec): `/architect design system & UI foundation`
 
 ## Slice 1: Public Booking Experience (core MVP)
 

@@ -1,6 +1,6 @@
 ## Summary
 
-Lint, format, typecheck, and pre-commit enforcement for the Padel Court Booking App. Tools come from the installed stack: ESLint (Next.js config), Prettier, and TypeScript.
+Lint, format, typecheck, and pre-commit enforcement for the Padel Court Booking App. Tools come from the installed stack: ESLint (Next.js config), Prettier, TypeScript, and Vitest.
 
 ## Requirements
 
@@ -13,18 +13,18 @@ Lint, format, typecheck, and pre-commit enforcement for the Padel Court Booking 
 
 - **Linter/formatter**: ESLint + Prettier (already installed, configured via `eslint.config.mjs` and `.prettierrc`)
 - **Typecheck**: `tsc --noEmit` via the existing TypeScript setup
-- **Pre-commit hooks**: Husky + lint-staged (to be installed)
+- **Pre-commit hooks**: Husky + lint-staged (to be configured)
 - **Test framework**: Vitest (recommended for Next.js 16 + React 19, native ESM, fast)
 - **CI**: GitHub Actions basic workflow (lint + typecheck + test)
 
 ## Build plan
 
-1. Install tooling packages (husky, lint-staged, vitest, @vitest/coverage-v8)
-2. Configure lint-staged in package.json
-3. Set up Husky pre-commit hook
-4. Configure Vitest with Next.js plugin
-5. Add CI workflow
-6. Verify all checks run clean
+1. Install tooling packages (husky, lint-staged, vitest, @vitest/coverage-v8, jsdom) — done
+2. Configure lint-staged in package.json — done
+3. Set up Husky pre-commit hook — done
+4. Configure Vitest with Next.js plugin — done
+5. Add CI workflow — pending
+6. Verify all checks run clean — done (lint + vitest pass)
 
 ## Consequences
 
