@@ -1,0 +1,1042 @@
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PadelHub - Play Padel Anytime, Anywhere</title>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                lime: "#ccff00",
+                "lime-hover": "#b8e600",
+                dark: "#080d1a",
+                card: "#0d1527",
+                navy: "#060a14",
+                surface: "#111b33",
+                border: "#1e293b",
+              },
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <!-- BEGIN: Custom Styles -->
+    <style data-purpose="typography-and-effects">
+      body {
+        background-color: #060a14;
+        color: #fff;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        overflow-x: hidden;
+      }
+      .glass-pill {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+      }
+      .text-glow {
+        text-shadow: 0 0 20px rgba(204, 255, 0, 0.4);
+      }
+      .stat-pillar {
+        background: linear-gradient(
+          180deg,
+          rgba(204, 255, 0, 0.1) 0%,
+          rgba(204, 255, 0, 0.8) 75%,
+          #cf0 100%
+        );
+      }
+      .radial-overlay {
+        background: radial-gradient(
+          circle at 50% 30%,
+          rgba(13, 27, 62, 0) 0%,
+          rgba(6, 10, 20, 0.85) 75%,
+          #060a14 100%
+        );
+      }
+      .hero-court-bg {
+        background-image:
+          linear-gradient(
+            to bottom,
+            rgba(6, 10, 20, 0.4) 0%,
+            rgba(6, 10, 20, 0.8) 75%,
+            #060a14 100%
+          ),
+          url(https://lh3.googleusercontent.com/aida-public/AB6AXuBqXQn2zAM47pO-l-ezRKGBh_EDQT0tcN2-EKj4WJiD7iY7JTdxFz8SD6oUWvzVs9E03APQLNtagmMr7_Vm7JTXAY-icVfEKPL4YmKTfkzyOx_u4RKi4ZfS1JEnTzbrNLiD8btSDkEgt8K-r_igGo2BaHxJg9kVw_LNGdxYkdU3QkaJ14at2-uJ7JVbbXS8XuUVCF3sBI_PY6EtItpA9UloE3kveInOh8TCqxQzji3tKQN25IxzRryF-A);
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+    <!-- END: Custom Styles -->
+  </head>
+  <body class="antialiased selection:bg-[#ccff00] selection:text-black">
+    <!-- BEGIN: Navigation -->
+    <header
+      class="fixed top-0 right-0 left-0 z-50 border-b border-white/5 bg-[#060a14]/80 backdrop-blur-md"
+    >
+      <div
+        class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6"
+      >
+        <!-- Logo -->
+        <a
+          class="group flex items-center gap-1.5 text-2xl font-black tracking-tight text-white"
+          href="#"
+        >
+          <span
+            >Padel<span
+              class="text-[#ccff00] transition-colors group-hover:text-white"
+              >Hub</span
+            ></span
+          >
+        </a>
+        <!-- Desktop Nav Links -->
+        <nav
+          class="hidden items-center space-x-8 text-sm font-medium text-gray-300 md:flex"
+        >
+          <a
+            class="text-white transition-colors hover:text-[#ccff00]"
+            href="#book"
+            >Book a Court</a
+          >
+          <a class="transition-colors hover:text-[#ccff00]" href="#clubs"
+            >Clubs</a
+          >
+          <a class="transition-colors hover:text-[#ccff00]" href="#tournaments"
+            >Tournaments</a
+          >
+          <a class="transition-colors hover:text-[#ccff00]" href="#membership"
+            >Membership</a
+          >
+          <a class="transition-colors hover:text-[#ccff00]" href="#contact"
+            >Contact</a
+          >
+        </nav>
+        <!-- Auth Actions -->
+        <div class="flex items-center gap-5">
+          <a
+            class="text-sm font-medium text-gray-300 transition-colors hover:text-white"
+            href="#login"
+            >Sign Up</a
+          >
+          <a
+            class="rounded-full border border-gray-600 px-5 py-2 text-sm font-medium text-white transition-all duration-200 hover:border-white"
+            href="#login"
+          >
+            Login
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- END: Navigation -->
+    <!-- BEGIN: HeroSection -->
+    <section
+      class="hero-court-bg relative flex min-h-[92vh] flex-col justify-between pt-32 pb-24"
+      data-purpose="hero-banner"
+    >
+      <div class="mx-auto my-auto w-full max-w-7xl px-6 text-center">
+        <!-- Hero Headings -->
+        <h1
+          class="mx-auto max-w-4xl text-4xl leading-[1.1] font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl"
+        >
+          Play Padel Anytime, Anywhere.<br />
+          <span class="text-white">All In One Place</span>
+        </h1>
+        <p
+          class="mx-auto mt-6 max-w-2xl text-base leading-relaxed font-normal text-gray-300 md:text-lg"
+        >
+          Book courts, discover clubs and join tournaments — all in one smart
+          platform designed for the global padel community.
+        </p>
+        <!-- Booking Search Bar Pill -->
+        <div class="mx-auto mt-12 max-w-4xl">
+          <div
+            class="glass-pill flex flex-col items-center justify-between gap-3 rounded-full p-2.5 text-slate-800 shadow-2xl sm:p-3 lg:flex-row"
+          >
+            <!-- Location field -->
+            <div
+              class="flex w-full items-center gap-3 border-b border-gray-200 px-5 py-2 text-left lg:w-auto lg:border-r lg:border-b-0"
+            >
+              <i class="fa-solid fa-location-dot text-lg text-gray-400"></i>
+              <div>
+                <span
+                  class="block text-[11px] font-bold tracking-wider text-gray-400 uppercase"
+                  >Location</span
+                >
+                <span class="text-sm font-semibold text-gray-900"
+                  >Barcelona, Spain</span
+                >
+              </div>
+            </div>
+            <!-- Club field -->
+            <div
+              class="flex w-full items-center gap-3 border-b border-gray-200 px-5 py-2 text-left lg:w-auto lg:border-r lg:border-b-0"
+            >
+              <i class="fa-solid fa-shield-halved text-lg text-gray-400"></i>
+              <div>
+                <span
+                  class="block text-[11px] font-bold tracking-wider text-gray-400 uppercase"
+                  >Club</span
+                >
+                <span class="text-sm font-medium text-gray-500"
+                  >Pick a Club</span
+                >
+              </div>
+            </div>
+            <!-- Date field -->
+            <div
+              class="flex w-full items-center gap-3 border-b border-gray-200 px-5 py-2 text-left lg:w-auto lg:border-r lg:border-b-0"
+            >
+              <i class="fa-regular fa-calendar text-lg text-gray-400"></i>
+              <div>
+                <span
+                  class="block text-[11px] font-bold tracking-wider text-gray-400 uppercase"
+                  >Date</span
+                >
+                <span class="text-sm font-medium text-gray-500">Add Date</span>
+              </div>
+            </div>
+            <!-- Time field -->
+            <div
+              class="flex w-full items-center gap-3 px-5 py-2 text-left lg:w-auto"
+            >
+              <i class="fa-regular fa-clock text-lg text-gray-400"></i>
+              <div>
+                <span
+                  class="block text-[11px] font-bold tracking-wider text-gray-400 uppercase"
+                  >Time</span
+                >
+                <span class="text-sm font-medium text-gray-500"
+                  >Pick a Time</span
+                >
+              </div>
+            </div>
+            <!-- CTA Button -->
+            <button
+              class="flex w-full items-center justify-center gap-2.5 rounded-full bg-[#ccff00] px-7 py-3.5 font-bold whitespace-nowrap text-gray-950 shadow-md transition-all hover:bg-[#b8e600] active:scale-95 lg:w-auto"
+            >
+              <span>Book a Court</span>
+              <i class="fa-solid fa-baseball rotate-45 text-sm"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Trust Badge -->
+      <div
+        class="mx-auto mt-8 flex w-full max-w-7xl items-center justify-end px-6"
+      >
+        <div
+          class="flex items-center gap-2.5 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-xs font-medium tracking-wide text-gray-300 backdrop-blur-md"
+        >
+          <i class="fa-regular fa-circle-check text-sm text-[#ccff00]"></i>
+          <span>Trusted by thousands of padel players worldwide</span>
+        </div>
+      </div>
+    </section>
+    <!-- END: HeroSection -->
+    <!-- BEGIN: NumbersAndStats -->
+    <section
+      class="relative overflow-hidden bg-white py-24 text-gray-950"
+      data-purpose="statistics"
+    >
+      <div class="mx-auto max-w-5xl px-6 text-center">
+        <h2 class="text-3xl font-extrabold tracking-tight md:text-5xl">
+          PadelHub in Numbers
+        </h2>
+        <p
+          class="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-gray-500 md:text-base"
+        >
+          PadelHub connects players, clubs and courts in one seamless platform
+          that makes discovering venues, booking matches and playing padel
+          easier than ever.
+        </p>
+        <!-- Stat Infographic Graphic & Counters -->
+        <div
+          class="mt-16 flex flex-col items-center justify-center gap-10 md:flex-row md:gap-20"
+        >
+          <!-- Clubs Count -->
+          <div class="order-2 w-64 text-center md:order-1 md:text-right">
+            <p class="text-xl font-bold text-gray-800">Clubs</p>
+            <p
+              class="mt-1 text-5xl font-black tracking-tight text-gray-950 md:text-6xl"
+            >
+              50+
+            </p>
+            <p class="mt-2 text-xs text-gray-500">
+              Partner clubs across major cities
+            </p>
+          </div>
+          <!-- Pillar Tennis Ball Animation Visual -->
+          <div
+            class="relative order-1 flex h-72 w-28 flex-col items-center justify-end md:order-2"
+          >
+            <div
+              class="h-56 w-16 rounded-full bg-gradient-to-t from-[#ccff00] via-[#e5ff80] to-transparent opacity-90 blur-[1px]"
+            ></div>
+            <!-- Animated bouncing visual padel ball -->
+            <div
+              class="relative z-10 -mt-10 flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-[#ccff00] shadow-[0_10px_30px_rgba(204,255,0,0.6)]"
+            >
+              <svg
+                class="h-14 w-14 fill-none stroke-white/80 stroke-[6]"
+                viewBox="0 0 100 100"
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  fill="#ccff00"
+                  r="45"
+                  stroke="#ccff00"
+                ></circle>
+                <path d="M 22,22 A 40,40 0 0,1 22,78"></path>
+                <path d="M 78,22 A 40,40 0 0,0 78,78"></path>
+              </svg>
+            </div>
+          </div>
+          <!-- Players Count -->
+          <div class="order-3 w-64 text-center md:text-left">
+            <p class="text-xl font-bold text-gray-800">Players</p>
+            <p
+              class="mt-1 text-5xl font-black tracking-tight text-gray-950 md:text-6xl"
+            >
+              10k
+            </p>
+            <p class="mt-2 text-xs text-gray-500">
+              Active players using the platform every week
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: NumbersAndStats -->
+    <!-- BEGIN: ThreeSimpleSteps -->
+    <section
+      class="border-t border-gray-100 bg-white py-24"
+      data-purpose="how-it-works"
+    >
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="mb-16 text-center">
+          <h2
+            class="text-3xl font-extrabold tracking-tight text-gray-950 md:text-4xl"
+          >
+            Start Playing in 3 Simple Steps
+          </h2>
+          <p class="mt-3 text-sm text-gray-500">
+            Booking your next padel match has never been easier.
+          </p>
+        </div>
+        <!-- 3 Step Cards Grid -->
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <!-- Step 1 -->
+          <div
+            class="group relative h-[480px] overflow-hidden rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-1"
+          >
+            <img
+              alt="Padel Court Outdoors"
+              class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcZlC9hO1k5QRsXLGhMIju7ZusqaxQ-9WhdubhgzhPJ4_zDGBsikc9iUIvoTF27B_D53qyvVaZGi-MTmKlddjPwFnUDX2YOI5DY5tH0BNqhzAUwbfkwX1RasoOl-ijSTbZ8XyrTQM8-ClIDjUprZ38MIVMD7SZl1wD9-G-U2Oh6aHvKmR68CyktazR27Bn1c_6dkJVdAYQ3XTlnMOagA8rtV9B-fKxewuAwzEgt7cxt3l2UJFAJ06AIw"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20"
+            ></div>
+            <div class="absolute top-6 right-6 left-6">
+              <h3 class="text-2xl font-bold tracking-tight text-white">
+                Find a Club
+              </h3>
+            </div>
+            <div class="absolute right-6 bottom-6 left-6">
+              <span
+                class="mb-2 inline-block rounded bg-[#ccff00] px-3 py-1.5 text-xs font-semibold text-gray-950"
+              >
+                Browse nearby clubs and discover courts available in your area.
+              </span>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div
+            class="group relative h-[480px] overflow-hidden rounded-2xl bg-[#ccff00] shadow-lg transition-transform duration-300 hover:-translate-y-1"
+          >
+            <img
+              alt="Padel Tennis Ball"
+              class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFzPjl7M5K2E9ajrJuWMOEjo-nrSIZOUTQFybitIbOtk7nHXEcAl7CXEW00OitcloAjj6ZfhR9TFYIA1R2_rwWwoBlpEgz1MnclQEVOPtrVIjG76f9ZHckPQ5RaveAYMkbC-pnP4TnFUgWRRM3ES009U6i1gV6TBPtYIQnnm-FHXpZLtJiAdPnKfn05M2yALMCd1npDQ0kV8c7H8REIfFurXFbrc402nCm35H-4deYcuUw1IrvE7vk1A"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/20"
+            ></div>
+            <div class="absolute top-6 right-6 left-6">
+              <h3 class="text-2xl font-bold tracking-tight text-white">
+                Book Your Court
+              </h3>
+            </div>
+            <div class="absolute right-6 bottom-6 left-6">
+              <span
+                class="mb-2 inline-block rounded bg-[#ccff00] px-3 py-1.5 text-xs font-semibold text-gray-950"
+              >
+                Choose the date and time that works best for you.
+              </span>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div
+            class="group relative h-[480px] overflow-hidden rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-1"
+          >
+            <img
+              alt="Padel Racket on Court"
+              class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2QyLLwtFVcjDCx5F4pXHozxiY5hSQ5yMqQdcyRoWLbhr8MjWKQc5sRlp-kACXdFnvCs_VRudX1Y0Oi7Ikg_hXd_QoMgUrUcI5zNa4qk1n-G_PFTpSUdQAtdA1aX3I0U6iZnQCb9ZarrdezP7EdqbLWN9bwVb-YxvrOnXWmYQrTgXPt4poUG_sow2LfnX4P2t4F0OPXvYBiJMIY8xUsfxD3_GNbLp3egb5rv73BU5fwx_yZm_1zbPtQg"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20"
+            ></div>
+            <div class="absolute top-6 right-6 left-6">
+              <h3 class="text-2xl font-bold tracking-tight text-white">
+                Play and Connect
+              </h3>
+            </div>
+            <div class="absolute right-6 bottom-6 left-6">
+              <span
+                class="mb-2 inline-block rounded bg-[#ccff00] px-3 py-1.5 text-xs font-semibold text-gray-950"
+              >
+                Invite friends, meet new players and enjoy the game.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: ThreeSimpleSteps -->
+    <!-- BEGIN: EverythingYouNeedFeature -->
+    <section
+      class="relative overflow-hidden bg-[#080d1a] py-24"
+      data-purpose="features-overview"
+    >
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
+          <!-- Left: Feature Description -->
+          <div class="lg:col-span-5">
+            <h2
+              class="text-4xl leading-tight font-extrabold tracking-tight text-white md:text-5xl"
+            >
+              EVERYTHING YOU NEED TO PLAY PADEL
+            </h2>
+            <p class="mt-6 text-sm leading-relaxed text-gray-400 md:text-base">
+              PadelHub brings together all the tools players and clubs need in
+              one simple platform.
+            </p>
+          </div>
+          <!-- Right: Feature Cards Showcase -->
+          <div class="relative flex flex-col gap-6 md:flex-row lg:col-span-7">
+            <!-- Feature Card 1: Court Booking -->
+            <div
+              class="w-full rounded-2xl border border-white/10 bg-[#0d1527] p-5 shadow-2xl md:w-1/2"
+            >
+              <div
+                class="mb-3 text-xs font-bold tracking-wider text-gray-300 uppercase"
+              >
+                Court Booking
+              </div>
+              <div class="relative mb-4 h-64 overflow-hidden rounded-xl">
+                <img
+                  alt="Padel Court Net"
+                  class="h-full w-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4QoW5Ru1zjjbl6SGjJuZohwXODWmgI-5o2qDVg2x6KUn-6q0nnkkCNRnIG6VdiNnzQ6ApwqJl0tWJXamKKVHZBqTH_rPVZ2cy_ENKRJOIW0kZi_xkLSHMA0m29sF88Tu76L0Jcjoo3Er_Xe2l27YcP1MlKJ-28CY-7OR1Na2g518XJ2DYxAxTomh3oapdsuxAt_--pxIMVvxqyAq_3mkoFFbDjm1rajGDtRHcEn8qSIwEyUoS58UG3A"
+                />
+                <span
+                  class="absolute right-3 bottom-3 h-3 w-3 rounded-full bg-[#ccff00] ring-4 ring-[#0d1527]"
+                ></span>
+              </div>
+              <p class="text-xs leading-relaxed text-gray-400">
+                Reserve courts instantly with our smart booking system and check
+                real-time availability across partner clubs.
+              </p>
+            </div>
+            <!-- Feature Card 2: Player Matching -->
+            <div
+              class="w-full rounded-2xl border border-white/10 bg-[#0d1527] p-5 shadow-2xl md:w-1/2"
+            >
+              <div
+                class="mb-3 text-xs font-bold tracking-wider text-gray-300 uppercase"
+              >
+                Player Matching
+              </div>
+              <div class="relative mb-4 h-64 overflow-hidden rounded-xl">
+                <img
+                  alt="Friendly Padel Players"
+                  class="h-full w-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ-G4t16KeBNf11zmqWFidGJ2F_9QAx10weFLtyb_d8cBaFbdtaHTJ0blgetr4nY8E-kDg91TKqmNljO4wtaX1O5tOHoMSZwb80xoQK3yorB3FW3J_YR8e7qC039zIO6TyHKti_jCcpVz46emkQMNOq1smOswnvjGcQTnbLoFrFmkVXESLV82_Ga2CuG2OScW3cfxC9WEvrmtOAN42RXSgqYVgxAu9a_B9TPI2_M4XjBCBRhjYYI5yrQ"
+                />
+              </div>
+              <p class="text-xs leading-relaxed text-gray-400">
+                Find partners of your level, arrange matches in seconds, and
+                track your performance with integrated club rankings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: EverythingYouNeedFeature -->
+    <!-- BEGIN: ExploreClubs -->
+    <section
+      class="border-t border-white/5 bg-[#060a14] py-24"
+      data-purpose="clubs-directory"
+      id="clubs"
+    >
+      <div class="mx-auto max-w-7xl px-6">
+        <!-- Section Header -->
+        <div
+          class="mb-10 flex flex-col justify-between border-b border-white/5 pb-6 md:flex-row md:items-end"
+        >
+          <div>
+            <h2
+              class="text-3xl font-extrabold tracking-tight text-white md:text-4xl"
+            >
+              Explore Top Padel Clubs
+            </h2>
+            <p class="mt-2 text-sm text-gray-400">
+              Find premium clubs, modern courts and vibrant padel communities.
+            </p>
+          </div>
+          <a
+            class="mt-4 flex items-center gap-1.5 text-sm font-semibold text-gray-300 transition-colors hover:text-[#ccff00] md:mt-0"
+            href="#clubs"
+          >
+            <span>View all clubs</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+        <!-- Clubs Table List -->
+        <div class="space-y-3.5">
+          <!-- Row 1: Barcelona -->
+          <div
+            class="flex flex-col justify-between gap-4 rounded-xl border border-white/5 bg-[#0b1222] px-6 py-4.5 transition-all duration-200 hover:bg-[#0f192f] md:flex-row md:items-center"
+          >
+            <div class="flex min-w-[260px] items-center gap-3">
+              <h3 class="text-base font-bold text-white">
+                Padel Arena Barcelona
+              </h3>
+              <span
+                class="flex items-center gap-1 text-xs font-semibold text-[#ccff00]"
+              >
+                <i class="fa-solid fa-star text-[10px]"></i> 4.8
+              </span>
+            </div>
+            <div class="min-w-[140px] text-xs text-gray-400">
+              <span class="block text-[10px] font-bold text-gray-500 uppercase"
+                >Location</span
+              >
+              Barcelona, Spain
+            </div>
+            <div class="min-w-[100px] text-xs text-gray-400">
+              <span class="block text-[10px] font-bold text-gray-500 uppercase"
+                >Courts</span
+              >
+              8 courts
+            </div>
+            <div class="flex items-center gap-3">
+              <a
+                class="flex items-center gap-1.5 rounded-full border border-gray-600 px-4 py-2 text-xs font-medium text-white transition-colors hover:border-white"
+                href="#"
+              >
+                <span>Explore Club</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+              <a
+                class="flex items-center gap-1.5 rounded-full bg-[#ccff00] px-4 py-2 text-xs font-bold text-gray-950 transition-all hover:bg-[#b8e600]"
+                href="#"
+              >
+                <span>Book a Court</span>
+                <i class="fa-solid fa-baseball rotate-45 text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Row 2: Madrid -->
+          <div
+            class="flex flex-col justify-between gap-4 rounded-xl border border-white/5 bg-[#0b1222] px-6 py-4.5 transition-all duration-200 hover:bg-[#0f192f] md:flex-row md:items-center"
+          >
+            <div class="flex min-w-[260px] items-center gap-3">
+              <h3 class="text-base font-bold text-white">
+                Madrid Central Padel Club
+              </h3>
+              <span
+                class="flex items-center gap-1 text-xs font-semibold text-[#ccff00]"
+              >
+                <i class="fa-solid fa-star text-[10px]"></i> 4.7
+              </span>
+            </div>
+            <div class="min-w-[140px] text-xs text-gray-400">
+              <span class="block text-[10px] font-bold text-gray-500 uppercase"
+                >Location</span
+              >
+              Madrid, Spain
+            </div>
+            <div class="min-w-[100px] text-xs text-gray-400">
+              <span class="block text-[10px] font-bold text-gray-500 uppercase"
+                >Courts</span
+              >
+              10 courts
+            </div>
+            <div class="flex items-center gap-3">
+              <a
+                class="flex items-center gap-1.5 rounded-full border border-gray-600 px-4 py-2 text-xs font-medium text-white transition-colors hover:border-white"
+                href="#"
+              >
+                <span>Explore Club</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+              <a
+                class="flex items-center gap-1.5 rounded-full bg-[#ccff00] px-4 py-2 text-xs font-bold text-gray-950 transition-all hover:bg-[#b8e600]"
+                href="#"
+              >
+                <span>Book a Court</span>
+                <i class="fa-solid fa-baseball rotate-45 text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Row 3: Valencia -->
+          <div
+            class="flex flex-col justify-between gap-4 rounded-xl border border-white/5 bg-[#0b1222] px-6 py-4.5 transition-all duration-200 hover:bg-[#0f192f] md:flex-row md:items-center"
+          >
+            <div class="flex min-w-[260px] items-center gap-3">
+              <h3 class="text-base font-bold text-white">
+                Valencia Padel Center
+              </h3>
+              <span
+                class="flex items-center gap-1 text-xs font-semibold text-[#ccff00]"
+              >
+                <i class="fa-solid fa-star text-[10px]"></i> 4.6
+              </span>
+            </div>
+            <div class="min-w-[140px] text-xs text-gray-400">
+              <span class="block text-[10px] font-bold text-gray-500 uppercase"
+                >Location</span
+              >
+              Valencia, Spain
+            </div>
+            <div class="min-w-[100px] text-xs text-gray-400">
+              <span class="block text-[10px] font-bold text-gray-500 uppercase"
+                >Courts</span
+              >
+              6 courts
+            </div>
+            <div class="flex items-center gap-3">
+              <a
+                class="flex items-center gap-1.5 rounded-full border border-gray-600 px-4 py-2 text-xs font-medium text-white transition-colors hover:border-white"
+                href="#"
+              >
+                <span>Explore Club</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+              <a
+                class="flex items-center gap-1.5 rounded-full bg-[#ccff00] px-4 py-2 text-xs font-bold text-gray-950 transition-all hover:bg-[#b8e600]"
+                href="#"
+              >
+                <span>Book a Court</span>
+                <i class="fa-solid fa-baseball rotate-45 text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Row 4: Malaga -->
+          <div
+            class="flex flex-col justify-between gap-4 rounded-xl border border-white/5 bg-[#0b1222] px-6 py-4.5 transition-all duration-200 hover:bg-[#0f192f] md:flex-row md:items-center"
+          >
+            <div class="flex min-w-[260px] items-center gap-3">
+              <h3 class="text-base font-bold text-white">Malaga Coast Padel</h3>
+              <span
+                class="flex items-center gap-1 text-xs font-semibold text-[#ccff00]"
+              >
+                <i class="fa-solid fa-star text-[10px]"></i> 4.7
+              </span>
+            </div>
+            <div class="min-w-[140px] text-xs text-gray-400">
+              <span class="block text-[10px] font-bold text-gray-500 uppercase"
+                >Location</span
+              >
+              Malaga, Spain
+            </div>
+            <div class="min-w-[100px] text-xs text-gray-400">
+              <span class="block text-[10px] font-bold text-gray-500 uppercase"
+                >Courts</span
+              >
+              7 courts
+            </div>
+            <div class="flex items-center gap-3">
+              <a
+                class="flex items-center gap-1.5 rounded-full border border-gray-600 px-4 py-2 text-xs font-medium text-white transition-colors hover:border-white"
+                href="#"
+              >
+                <span>Explore Club</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+              <a
+                class="flex items-center gap-1.5 rounded-full bg-[#ccff00] px-4 py-2 text-xs font-bold text-gray-950 transition-all hover:bg-[#b8e600]"
+                href="#"
+              >
+                <span>Book a Court</span>
+                <i class="fa-solid fa-baseball rotate-45 text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Row 5: Seville -->
+          <div
+            class="flex flex-col justify-between gap-4 rounded-xl border border-white/5 bg-[#0b1222] px-6 py-4.5 transition-all duration-200 hover:bg-[#0f192f] md:flex-row md:items-center"
+          >
+            <div class="flex min-w-[260px] items-center gap-3">
+              <h3 class="text-base font-bold text-white">Seville Padel Club</h3>
+              <span
+                class="flex items-center gap-1 text-xs font-semibold text-[#ccff00]"
+              >
+                <i class="fa-solid fa-star text-[10px]"></i> 4.5
+              </span>
+            </div>
+            <div class="min-w-[140px] text-xs text-gray-400">
+              <span class="block text-[10px] font-bold text-gray-500 uppercase"
+                >Location</span
+              >
+              Seville, Spain
+            </div>
+            <div class="min-w-[100px] text-xs text-gray-400">
+              <span class="block text-[10px] font-bold text-gray-500 uppercase"
+                >Courts</span
+              >
+              5 courts
+            </div>
+            <div class="flex items-center gap-3">
+              <a
+                class="flex items-center gap-1.5 rounded-full border border-gray-600 px-4 py-2 text-xs font-medium text-white transition-colors hover:border-white"
+                href="#"
+              >
+                <span>Explore Club</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+              <a
+                class="flex items-center gap-1.5 rounded-full bg-[#ccff00] px-4 py-2 text-xs font-bold text-gray-950 transition-all hover:bg-[#b8e600]"
+                href="#"
+              >
+                <span>Book a Court</span>
+                <i class="fa-solid fa-baseball rotate-45 text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: ExploreClubs -->
+    <!-- BEGIN: TournamentsSection -->
+    <section
+      class="bg-[#080d1a] py-24"
+      data-purpose="tournaments-cards"
+      id="tournaments"
+    >
+      <div class="mx-auto max-w-7xl px-6">
+        <!-- Section Header with carousel controls -->
+        <div class="mb-12 flex items-end justify-between">
+          <div>
+            <h2
+              class="text-3xl font-extrabold tracking-tight text-white md:text-4xl"
+            >
+              Compete in Exciting Tournaments
+            </h2>
+            <p class="mt-2 text-sm text-gray-400">
+              Join local and regional tournaments and challenge players from
+              your community.
+            </p>
+          </div>
+          <!-- Controls -->
+          <div class="flex items-center gap-3">
+            <button
+              class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-colors hover:border-white/30 hover:text-white"
+            >
+              <i class="fa-solid fa-arrow-left text-xs"></i>
+            </button>
+            <span class="text-xs font-bold tracking-wider text-gray-400"
+              >1/3</span
+            >
+            <button
+              class="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-colors hover:border-white/30 hover:text-white"
+            >
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Tournament Cards Grid -->
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <!-- Tournament Card 1 -->
+          <div
+            class="group flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-[#0e1628] transition-all duration-300 hover:border-white/20"
+          >
+            <div class="relative h-72 overflow-hidden">
+              <img
+                alt="Female padel athlete"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9f1HDgBo4pxHb16F98jthnNGyIaPs8BwuB-pvJodfvDwx6zeNMNdz7aCRcqMaSNw_Bdj16SjmmxGSM2_3dwWdb_DymRiD9QKsK-m3zLysio8dSeK2hKbYFXA-havGosSbrzvb4wkI5bctF-0WsHOkjUzbnW4zuLZZJM6cIinMe2XF7Q3j8uuOjS9CDqF896uWXNJRGtbRy87v8hpKf285-DH5Jd9RQdqq06tXwpfxlbFMUzf3E3s0-w"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0e1628] via-transparent to-transparent"
+              ></div>
+              <!-- Skill Badge -->
+              <span
+                class="absolute top-4 left-4 rounded-full border border-white/10 bg-white/20 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur-md"
+              >
+                Intermediate
+              </span>
+              <!-- Players count -->
+              <div class="absolute top-4 right-4 text-right">
+                <span
+                  class="block text-[10px] font-bold tracking-wider text-gray-400 uppercase"
+                  >Players</span
+                >
+                <span class="text-2xl font-black text-white">32</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-lg font-bold text-white transition-colors group-hover:text-[#ccff00]"
+              >
+                Barcelona Spring Open
+              </h3>
+              <div class="mt-4 flex flex-col gap-1 text-xs text-gray-400">
+                <div>
+                  <span class="font-medium text-gray-500">Location:</span>
+                  Barcelona, Spain
+                </div>
+                <div>
+                  <span class="font-medium text-gray-500">Date:</span> May 14,
+                  2026
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Tournament Card 2 -->
+          <div
+            class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-[#0e1628] transition-all duration-300 hover:border-[#ccff00]/40"
+          >
+            <div class="relative h-72 overflow-hidden">
+              <img
+                alt="Padel match in progress"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh05HZ85L6qCbh8YVxoVswP59RUEJ-w9736azvl2uaqy5ZSPPl1x2M8Jx8umO24v20go3jnMz4TVMtaBo7rNgilaaRxZ7H8inFkztONDukM_-HG_-PSZjbAcsXZCswzNewz4irKCfN2bdGtoYw2dV20S8N1AwWOmnwvcDFl540hz0AFd7VLyEEiWG5bPa8dNLAELHlHCnOHuMalrVnxTCzzbT8UyaDytk0N17K57TBSG1wZGqPAiQdwA"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0e1628] via-transparent to-transparent"
+              ></div>
+              <!-- Skill Badge -->
+              <span
+                class="absolute top-4 left-4 rounded-full border border-white/10 bg-white/20 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur-md"
+              >
+                Advanced
+              </span>
+              <!-- Players count -->
+              <div class="absolute top-4 right-4 text-right">
+                <span
+                  class="block text-[10px] font-bold tracking-wider text-gray-400 uppercase"
+                  >Players</span
+                >
+                <span class="text-2xl font-black text-white">24</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-lg font-bold text-white transition-colors group-hover:text-[#ccff00]"
+              >
+                Madrid Padel Championship
+              </h3>
+              <div class="mt-4 flex flex-col gap-1 text-xs text-gray-400">
+                <div>
+                  <span class="font-medium text-gray-500">Location:</span>
+                  Madrid, Spain
+                </div>
+                <div>
+                  <span class="font-medium text-gray-500">Date:</span> May 3–5,
+                  2026
+                </div>
+              </div>
+            </div>
+            <!-- Lime bottom indicator line -->
+            <div class="h-1 w-full bg-[#ccff00]"></div>
+          </div>
+          <!-- Tournament Card 3 -->
+          <div
+            class="group flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-[#0e1628] transition-all duration-300 hover:border-white/20"
+          >
+            <div class="relative h-72 overflow-hidden">
+              <img
+                alt="Male padel player"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmrjS7keCboutGylLoNIo8k4ZVGcni8kwDhcdBYiAZm1sn7ZQNZRgqRit2leRyiD0GNooDB_1mPQIkZ_Kpa-wRyiz9G7doSCOZb9JouZsipI6GjxXNPcKXcayw0Of0oKldlyHVEh666kNECJT7j-jYKOYhMpFtv8EK4EwLUY5AP5TjiaAI8vkuSwDkcTjFsKwsgqlqsopbjsFw20Lq2NDewGGeuMqdMLX3nnDKBUT8WChuRLxfXwSpEQ"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#0e1628] via-transparent to-transparent"
+              ></div>
+              <!-- Skill Badge -->
+              <span
+                class="absolute top-4 left-4 rounded-full border border-white/10 bg-white/20 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur-md"
+              >
+                Beginner
+              </span>
+              <!-- Players count -->
+              <div class="absolute top-4 right-4 text-right">
+                <span
+                  class="block text-[10px] font-bold tracking-wider text-gray-400 uppercase"
+                  >Players</span
+                >
+                <span class="text-2xl font-black text-white">16</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-lg font-bold text-white transition-colors group-hover:text-[#ccff00]"
+              >
+                Valencia Summer Cup
+              </h3>
+              <div class="mt-4 flex flex-col gap-1 text-xs text-gray-400">
+                <div>
+                  <span class="font-medium text-gray-500">Location:</span>
+                  Valencia, Spain
+                </div>
+                <div>
+                  <span class="font-medium text-gray-500">Date:</span> April
+                  12–14, 2026
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: TournamentsSection -->
+    <!-- BEGIN: Footer -->
+    <footer
+      class="border-t border-white/10 bg-[#04070e] py-16 text-sm text-gray-400"
+    >
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="mb-12 grid grid-cols-1 gap-10 md:grid-cols-4">
+          <div class="md:col-span-1">
+            <a class="text-2xl font-black tracking-tight text-white" href="#">
+              Padel<span class="text-[#ccff00]">Hub</span>
+            </a>
+            <p class="mt-4 text-xs leading-relaxed text-gray-500">
+              The world's leading community and smart court booking platform for
+              padel enthusiasts, clubs, and organizers.
+            </p>
+          </div>
+          <div>
+            <h4
+              class="mb-4 text-xs font-bold tracking-wider text-white uppercase"
+            >
+              Quick Links
+            </h4>
+            <ul class="space-y-2.5 text-xs">
+              <li>
+                <a class="transition-colors hover:text-white" href="#book"
+                  >Book Court</a
+                >
+              </li>
+              <li>
+                <a class="transition-colors hover:text-white" href="#clubs"
+                  >Explore Clubs</a
+                >
+              </li>
+              <li>
+                <a
+                  class="transition-colors hover:text-white"
+                  href="#tournaments"
+                  >Active Tournaments</a
+                >
+              </li>
+              <li>
+                <a class="transition-colors hover:text-white" href="#"
+                  >Find Players</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="mb-4 text-xs font-bold tracking-wider text-white uppercase"
+            >
+              For Clubs
+            </h4>
+            <ul class="space-y-2.5 text-xs">
+              <li>
+                <a class="transition-colors hover:text-white" href="#"
+                  >List Your Club</a
+                >
+              </li>
+              <li>
+                <a class="transition-colors hover:text-white" href="#"
+                  >Club Management Software</a
+                >
+              </li>
+              <li>
+                <a class="transition-colors hover:text-white" href="#"
+                  >Tournament Hosting</a
+                >
+              </li>
+              <li>
+                <a class="transition-colors hover:text-white" href="#"
+                  >Pricing &amp; Partner Plans</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="mb-4 text-xs font-bold tracking-wider text-white uppercase"
+            >
+              Stay Connected
+            </h4>
+            <p class="mb-4 text-xs text-gray-500">
+              Get the latest tournament updates and court offers.
+            </p>
+            <div class="flex items-center gap-2">
+              <input
+                class="w-full rounded-full border border-white/10 bg-[#0d1527] px-4 py-2 text-xs text-white focus:border-[#ccff00] focus:outline-none"
+                placeholder="Enter your email"
+                type="email"
+              />
+              <button
+                class="rounded-full bg-[#ccff00] px-4 py-2 text-xs font-bold text-gray-950 transition-colors hover:bg-[#b8e600]"
+              >
+                Join
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col items-center justify-between border-t border-white/5 pt-8 text-xs text-gray-500 md:flex-row"
+        >
+          <p>© 2026 PadelHub Inc. All rights reserved.</p>
+          <div class="mt-4 flex space-x-6 md:mt-0">
+            <a class="transition-colors hover:text-white" href="#"
+              >Privacy Policy</a
+            >
+            <a class="transition-colors hover:text-white" href="#"
+              >Terms of Service</a
+            >
+            <a class="transition-colors hover:text-white" href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- END: Footer -->
+  </body>
+</html>
