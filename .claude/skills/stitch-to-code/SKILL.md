@@ -8,6 +8,7 @@ disable-model-invocation: true
 
 Input: $ARGUMENTS (path to a Stitch HTML file, or HTML pasted in chat).
 Stitch HTML is a VISUAL REFERENCE, never code to paste as-is.
+When making metadata use Metadata type from nextjs.
 
 ## Stack
 

@@ -1,0 +1,435 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PadelHub - Book a Court</title>
+<!-- Modern Clean Typography: Clash Display & Satoshi -->
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&amp;f[]=satoshi@400,500,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #090d16;
+        color: #fcfcfc;
+        font-family: 'Satoshi', sans-serif;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 9999px;
+    }
+    .font-display {
+      font-family: 'Clash Display', sans-serif;
+    }
+    .font-body {
+      font-family: 'Satoshi', sans-serif;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "canvas": "#090d16",
+            "panel": "#0f172a",
+            "panel-elevated": "#1e293b",
+            "panel-border": "#334155",
+            "lime-accent": "#c8f135",
+            "lime-dark": "#0f172a",
+            "lime-muted": "rgba(200, 241, 53, 0.15)",
+            "text-muted": "#94a3b8",
+            "text-subtle": "#64748b",
+            "text-primary": "#fcfcfc"
+          },
+          fontFamily: {
+            display: ['"Clash Display"', 'sans-serif'],
+            body: ['Satoshi', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-canvas text-text-primary antialiased selection:bg-lime-accent selection:text-lime-dark font-body">
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-[#0f172a]/95 backdrop-blur-md border-b border-[#334155]/70">
+<div class="h-20 w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex items-center justify-between gap-4">
+<a class="flex items-center gap-1.5 font-display text-2xl font-bold tracking-tight uppercase select-none" href="#">
+<span class="text-[#ffffff]">Padel</span><span class="text-lime-accent">Hub</span>
+</a>
+<nav class="hidden lg:flex items-center gap-1 bg-[#1e293b] px-2 py-1.5 rounded-full border border-[#334155] text-sm font-medium">
+<a aria-current="page" class="transition-all bg-lime-accent text-lime-dark font-semibold rounded-full px-4 py-1.5 shadow-sm" href="#">Book a Court</a>
+<a class="text-text-muted hover:text-white px-4 py-1.5 rounded-full transition-colors" href="#">Clubs</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Tournaments</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Membership</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-3">
+<a class="text-sm font-semibold px-4 py-2 rounded-full text-slate-300 hover:text-white transition-colors" href="#">Log In</a>
+<a class="text-sm font-semibold px-5 py-2 rounded-full bg-lime-accent text-lime-dark hover:bg-lime-accent/90 transition-all font-display tracking-tight shadow-[0_0_20px_rgba(200,241,53,0.2)]" href="#">Sign Up</a>
+<div class="w-9 h-9 rounded-full bg-[#1e293b] border border-[#334155] flex items-center justify-center text-text-muted hover:text-white cursor-pointer ml-1">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Booking Interface -->
+<main class="w-full pt-28 pb-20 bg-canvas">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Top Section: Titles & Venue Selector -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-[#334155]/60">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 w-full">
+<div class="flex flex-col gap-1">
+<h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white">Book a Court</h1>
+<p class="text-text-muted text-sm">Select your preferred court, date, and 60-minute match slot.</p>
+</div>
+<div class="flex items-center gap-2.5 bg-[#1e293b] border border-[#334155] px-3.5 py-2 rounded-xl">
+<span class="material-symbols-outlined text-lime-accent text-[20px]">location_on</span>
+<div class="flex-1">
+<select class="bg-transparent text-white font-medium text-xs sm:text-sm focus:outline-none cursor-pointer pr-2 border-0 focus:ring-0" id="venue-selector"><option class="bg-[#0f172a] text-white" value="jkt-scbd">Padel Arena Jakarta (SCBD)</option><option class="bg-[#0f172a] text-white" value="bali-canggu">Bali Padel Club (Canggu)</option><option class="bg-[#0f172a] text-white" value="sby-west">Surabaya Padel Center</option><option class="bg-[#0f172a] text-white" value="bdg-dago">Bandung Olympic Padel</option></select>
+</div>
+<span class="material-symbols-outlined text-text-muted text-[16px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Date Strip Component -->
+<div class="py-6 flex flex-col gap-3">
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+<button class="date-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-lime-accent text-lime-dark transition-all shadow-sm" type="button">Today, Oct 24</button>
+<button class="date-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-[#1e293b] border border-[#334155] text-text-muted hover:text-white hover:border-slate-500 transition-all" type="button">Tomorrow, Oct 25</button>
+<button class="date-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-[#1e293b] border border-[#334155] text-text-muted hover:text-white hover:border-slate-500 transition-all" type="button">Sat, Oct 26</button>
+<button class="date-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-[#1e293b] border border-[#334155] text-text-muted hover:text-white hover:border-slate-500 transition-all" type="button">Sun, Oct 27</button>
+<button class="date-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-[#1e293b] border border-[#334155] text-text-muted hover:text-white hover:border-slate-500 transition-all" type="button">Mon, Oct 28</button>
+<button class="date-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-[#1e293b] border border-[#334155] text-text-muted hover:text-white hover:border-slate-500 transition-all" type="button">Tue, Oct 29</button>
+<button class="date-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-[#1e293b] border border-[#334155] text-text-muted hover:text-white hover:border-slate-500 transition-all" type="button">Wed, Oct 30</button>
+</div>
+</div>
+<!-- Filters & Legend -->
+<div class="pb-6 flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-2">
+<button class="court-filter px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-[#0f172a] transition-all" type="button">All Courts (4)</button>
+<button class="court-filter px-3.5 py-1.5 rounded-lg text-xs font-medium bg-[#1e293b] border border-[#334155] text-text-muted hover:text-white transition-all" type="button">Indoor</button>
+<button class="court-filter px-3.5 py-1.5 rounded-lg text-xs font-medium bg-[#1e293b] border border-[#334155] text-text-muted hover:text-white transition-all" type="button">Outdoor Panoramic</button>
+<button class="court-filter px-3.5 py-1.5 rounded-lg text-xs font-medium bg-[#1e293b] border border-[#334155] text-text-muted hover:text-white transition-all" type="button">Rooftop</button>
+</div>
+<div class="flex items-center gap-4 text-xs font-medium text-text-muted">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-[#1e293b] border border-[#334155]"></span>
+<span class="">Available</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-lime-accent"></span>
+<span class="text-white font-medium">Selected</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-[#0f172a] border border-[#334155]/60 opacity-60"></span>
+<span class="">Booked</span>
+</div>
+</div>
+</div>
+<!-- Court Cards List -->
+<div class="flex flex-col gap-6">
+<!-- Court 1 -->
+<div class="bg-[#1e293b] border border-[#334155] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row gap-5 items-stretch transition-all shadow-sm">
+<div class="md:w-5/12 relative h-48 md:h-auto min-h-[180px] rounded-xl overflow-hidden bg-[#0f172a]">
+<img alt="Championship Center Court" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UVrUVHzK1ZrW6LXT8-9LyMBspsyq72Lk89C7D7aW6ndh1eu8beDUo8bl1-hHO_HG1jlwNROIIDZVmZLjVl2EjsPSH4WgdJtpxjD5hIRGACM0l1wyCCgY-flVDMw9MRYruLBxaNXb9NCzcE2bJcyMlCzsvH5GjaCpNc6X2U3mMGo7zoEU_ivJWD5UAy9EthBz8skSpCZ9zk2-7ZWa_Lv2L9pwefT8IOZhzEVhhM6v7hqS63ZNAP0Eso6-Q">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#0f172a]/30 to-transparent"></div>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-md bg-[#0f172a]/90 backdrop-blur-md text-lime-accent text-xs font-semibold border border-[#334155]/50">Indoor Glass</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+<span class="font-display font-bold text-xl text-white">Rp 450.000<span class="text-xs text-text-muted font-normal font-body"> / hour</span></span>
+</div>
+</div>
+<div class="md:w-7/12 flex flex-col justify-between gap-4">
+<div>
+<div class="flex items-center justify-between">
+<h2 class="font-display text-lg sm:text-xl font-bold text-white">Championship Center Court</h2>
+<span class="text-xs text-lime-accent font-medium px-2 py-0.5 rounded bg-lime-accent/10 border border-lime-accent/20">1 Selected</span>
+</div>
+<p class="text-xs text-text-muted mt-1 font-body">Mondo Supercourt XN • Pro Glass Enclosure • High Lumen LED</p>
+</div>
+<div>
+<div class="grid grid-cols-3 sm:grid-cols-4 gap-1.5 text-xs font-medium font-body">
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">10:00 - 11:00</button>
+<button class="py-2 px-1 rounded-lg bg-[#0f172a]/50 border border-[#334155]/40 text-slate-500 line-through cursor-not-allowed text-center" disabled="" type="button">11:00 - 12:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">12:00 - 13:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">13:00 - 14:00</button>
+<button class="py-2 px-1 rounded-lg bg-[#0f172a]/50 border border-[#334155]/40 text-slate-500 line-through cursor-not-allowed text-center" disabled="" type="button">14:00 - 15:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">15:00 - 16:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">16:00 - 17:00</button>
+<button class="py-2 px-1 rounded-lg bg-[#0f172a]/50 border border-[#334155]/40 text-slate-500 line-through cursor-not-allowed text-center" disabled="" type="button">17:00 - 18:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-lime-accent text-lime-dark font-bold shadow-sm text-center" type="button">18:00 - 19:00</button>
+<button class="py-2 px-1 rounded-lg bg-[#0f172a]/50 border border-[#334155]/40 text-slate-500 line-through cursor-not-allowed text-center" disabled="" type="button">19:00 - 20:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">20:00 - 21:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">21:00 - 22:00</button>
+</div>
+</div>
+<div class="pt-3.5 mt-1 border-t border-[#334155] flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="text-xs text-text-muted flex items-center gap-1.5 font-body">
+<span class="material-symbols-outlined text-lime-accent text-[17px]">verified</span>
+<span class="">Instant Confirmation • Free cancellation up to 6h before</span>
+</div>
+<a class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-lime-accent text-lime-dark font-body font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-lime-accent/90 transition-all shadow-sm" href="#">
+<span class="">View Court Details &amp; Book</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Court 2 -->
+<div class="bg-[#1e293b] border border-[#334155] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row gap-5 items-stretch transition-all shadow-sm">
+<div class="md:w-5/12 relative h-48 md:h-auto min-h-[180px] rounded-xl overflow-hidden bg-[#0f172a]">
+<img alt="Sunshine Panoramic Court" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WbMvkODKbvsczP4sA8afpI4cWhkYFoeHXsmXiscA77qcw1OqLzf_zaUXUiel8hPvBejWUE6KCnawhIkE4r-OpX610a2IY4lkaq8jQEftZCS4OXcfE0WykukLUr2hz2AZEF4n0W0_kXt7j3eFoKIPfGSUv_f10mGdjgoiq48ASvNOS6DtZr8RMcLNaUuNpNthG_hvG9pXwhWwD5GyRh5eQAymeodedxGtKP1_qF7QrEePJ5pnwOks-GjBsz">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#0f172a]/30 to-transparent"></div>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-md bg-[#0f172a]/90 backdrop-blur-md text-lime-accent text-xs font-semibold border border-[#334155]/50">Outdoor Panoramic</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+<span class="font-display font-bold text-xl text-white">Rp 350.000<span class="text-xs text-text-muted font-normal font-body"> / hour</span></span>
+</div>
+</div>
+<div class="md:w-7/12 flex flex-col justify-between gap-4">
+<div>
+<div class="flex items-center justify-between">
+<h2 class="font-display text-lg sm:text-xl font-bold text-white">Sunshine Panoramic Court</h2>
+</div>
+<p class="text-xs text-text-muted mt-1 font-body">Panoramic glass • Open air • Fresh breeze &amp; sun protection</p>
+</div>
+<div>
+<div class="grid grid-cols-3 sm:grid-cols-4 gap-1.5 text-xs font-medium font-body">
+<button class="py-2 px-1 rounded-lg bg-[#0f172a]/50 border border-[#334155]/40 text-slate-500 line-through cursor-not-allowed text-center" disabled="" type="button">10:00 - 11:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">11:00 - 12:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">12:00 - 13:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">13:00 - 14:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">14:00 - 15:00</button>
+<button class="py-2 px-1 rounded-lg bg-[#0f172a]/50 border border-[#334155]/40 text-slate-500 line-through cursor-not-allowed text-center" disabled="" type="button">15:00 - 16:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">16:00 - 17:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">17:00 - 18:00</button>
+<button class="py-2 px-1 rounded-lg bg-[#0f172a]/50 border border-[#334155]/40 text-slate-500 line-through cursor-not-allowed text-center" disabled="" type="button">18:00 - 19:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">19:00 - 20:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">20:00 - 21:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">21:00 - 22:00</button>
+</div>
+</div>
+<div class="pt-3.5 mt-1 border-t border-[#334155] flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="text-xs text-text-muted flex items-center gap-1.5 font-body">
+<span class="material-symbols-outlined text-lime-accent text-[17px]">verified</span>
+<span class="">Instant Confirmation • Free cancellation up to 6h before</span>
+</div>
+<a class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-lime-accent text-lime-dark font-body font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-lime-accent/90 transition-all shadow-sm" href="#">
+<span class="">View Court Details &amp; Book</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Court 3 -->
+<div class="bg-[#1e293b] border border-[#334155] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row gap-5 items-stretch transition-all shadow-sm">
+<div class="md:w-5/12 relative h-48 md:h-auto min-h-[180px] rounded-xl overflow-hidden bg-[#0f172a]">
+<img alt="Indoor Arena Pro Court" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XFXbexNwv3e4SCOY4UsJjQd0jR8_vUmxyNvgoU48idoD1UGzhWoVfp8119lcCgRSB8kbnKseKQERbPrggIwK0q05rsi1y_iKn48hI0VEkCNAqfEhJxG0-m9hkkx7cDf2k8mawMIlqAcZM1ZuUS5A5OtU8zVvW3KhK1JIc4JTKh5ots9fxU_8a9QJGOPfhAie6Wqkskt1fh6ieixq9q7ZbCU7CmBIF_eHVp9hF3wrnJZgzDBEtQLbYA9kU">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#0f172a]/30 to-transparent"></div>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-md bg-[#0f172a]/90 backdrop-blur-md text-lime-accent text-xs font-semibold border border-[#334155]/50">Indoor Arena</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+<span class="font-display font-bold text-xl text-white">Rp 400.000<span class="text-xs text-text-muted font-normal font-body"> / hour</span></span>
+</div>
+</div>
+<div class="md:w-7/12 flex flex-col justify-between gap-4">
+<div>
+<div class="flex items-center justify-between">
+<h2 class="font-display text-lg sm:text-xl font-bold text-white">Indoor Arena Pro Court</h2>
+</div>
+<p class="text-xs text-text-muted mt-1 font-body">Climate Controlled • HD Replay System • Cushion Turf</p>
+</div>
+<div>
+<div class="grid grid-cols-3 sm:grid-cols-4 gap-1.5 text-xs font-medium font-body">
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">10:00 - 11:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">11:00 - 12:00</button>
+<button class="py-2 px-1 rounded-lg bg-[#0f172a]/50 border border-[#334155]/40 text-slate-500 line-through cursor-not-allowed text-center" disabled="" type="button">12:00 - 13:00</button>
+<button class="py-2 px-1 rounded-lg bg-[#0f172a]/50 border border-[#334155]/40 text-slate-500 line-through cursor-not-allowed text-center" disabled="" type="button">13:00 - 14:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">14:00 - 15:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">15:00 - 16:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">16:00 - 17:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">17:00 - 18:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">18:00 - 19:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">19:00 - 20:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">20:00 - 21:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">21:00 - 22:00</button>
+</div>
+</div>
+<div class="pt-3.5 mt-1 border-t border-[#334155] flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="text-xs text-text-muted flex items-center gap-1.5 font-body">
+<span class="material-symbols-outlined text-lime-accent text-[17px]">verified</span>
+<span class="">Instant Confirmation • Free cancellation up to 6h before</span>
+</div>
+<a class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-lime-accent text-lime-dark font-body font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-lime-accent/90 transition-all shadow-sm" href="#">
+<span class="">View Court Details &amp; Book</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Court 4 -->
+<div class="bg-[#1e293b] border border-[#334155] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row gap-5 items-stretch transition-all shadow-sm">
+<div class="md:w-5/12 relative h-48 md:h-auto min-h-[180px] rounded-xl overflow-hidden bg-[#0f172a]">
+<img alt="Twilight Skyline Dome" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XCJMK_WMT3Lb-AArKEWJPpW-AKv4rkml7UKMgiL9eu8KUDX4H2uOfzaP1i-a9NEKW2zExsJLqf1D-CxcWmShHs5k9YQ4N9vKRzl7v1gPJWA_HxYbu6oBNxKKRpGzNJaDRgdrHVB3VlsrL9dbLmpLSvrojyKwFopMafcrJ5psZwh-lX4ac_La2AnQe4ItFPNSk7OCpsd2_XdPLKwh0Jy6I4jnaxQNnIUb6lw_r7rQBxxHVkL-zgq90Wcgy_">
+<div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-[#0f172a]/30 to-transparent"></div>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-md bg-[#0f172a]/90 backdrop-blur-md text-lime-accent text-xs font-semibold border border-[#334155]/50">Rooftop Dome</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+<span class="font-display font-bold text-xl text-white">Rp 500.000<span class="text-xs text-text-muted font-normal font-body"> / hour</span></span>
+</div>
+</div>
+<div class="md:w-7/12 flex flex-col justify-between gap-4">
+<div>
+<div class="flex items-center justify-between">
+<h2 class="font-display text-lg sm:text-xl font-bold text-white">Twilight Skyline Dome</h2>
+</div>
+<p class="text-xs text-text-muted mt-1 font-body">Covered Rooftop • City Vista • Premium Acoustic Padding</p>
+</div>
+<div>
+<div class="grid grid-cols-3 sm:grid-cols-4 gap-1.5 text-xs font-medium font-body">
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">10:00 - 11:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">11:00 - 12:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">12:00 - 13:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">13:00 - 14:00</button>
+<button class="py-2 px-1 rounded-lg bg-[#0f172a]/50 border border-[#334155]/40 text-slate-500 line-through cursor-not-allowed text-center" disabled="" type="button">14:00 - 15:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">15:00 - 16:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">16:00 - 17:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">17:00 - 18:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">18:00 - 19:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">19:00 - 20:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">20:00 - 21:00</button>
+<button class="slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center" type="button">21:00 - 22:00</button>
+</div>
+</div>
+<div class="pt-3.5 mt-1 border-t border-[#334155] flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="text-xs text-text-muted flex items-center gap-1.5 font-body">
+<span class="material-symbols-outlined text-lime-accent text-[17px]">verified</span>
+<span class="">Instant Confirmation • Free cancellation up to 6h before</span>
+</div>
+<a class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-lime-accent text-lime-dark font-body font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-lime-accent/90 transition-all shadow-sm" href="#">
+<span class="">View Court Details &amp; Book</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Clean Footer -->
+<footer class="w-full bg-[#0f172a] border-t border-[#334155]/70">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-[#334155]/60">
+<div class="lg:col-span-4 flex flex-col gap-4">
+<a class="flex items-center gap-1.5 font-display text-2xl font-bold tracking-tight uppercase select-none" href="#">
+<span class="text-white">Padel</span><span class="text-lime-accent">Hub</span>
+</a>
+<p class="text-text-muted text-sm font-body">The premier platform for booking padel courts, joining competitive leagues, and connecting with the community worldwide.</p>
+<div class="flex items-center gap-3 pt-2">
+<a class="w-9 h-9 rounded-full bg-[#1e293b] border border-[#334155] flex items-center justify-center text-text-muted hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</a>
+<a class="w-9 h-9 rounded-full bg-[#1e293b] border border-[#334155] flex items-center justify-center text-text-muted hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-2 flex flex-col gap-3 text-sm font-body">
+<span class="font-display font-semibold text-white">Quick Links</span>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Book a Court</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">All Clubs</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Tournaments</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Player Pass</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Support Desk</a>
+</div>
+<div class="lg:col-span-2 flex flex-col gap-3 text-sm font-body">
+<span class="font-display font-semibold text-white">For Clubs</span>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Partner Portal</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Court Management</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Host Tournaments</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Club Affiliation</a>
+<a class="text-text-muted hover:text-white transition-colors" href="#">Hardware System</a>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-3 font-body">
+<span class="font-display font-semibold text-white text-base">Mobile App</span>
+<p class="text-text-muted text-sm">Book courts on the go, track stats, and challenge nearby players.</p>
+<div class="flex flex-col sm:flex-row gap-2.5 pt-1">
+<button class="px-4 py-2.5 rounded-xl bg-[#1e293b] border border-[#334155] text-white text-xs font-semibold flex items-center justify-center gap-2 hover:border-slate-400 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">phone_iphone</span>
+<span class="">iOS App</span>
+</button>
+<button class="px-4 py-2.5 rounded-xl bg-[#1e293b] border border-[#334155] text-white text-xs font-semibold flex items-center justify-center gap-2 hover:border-slate-400 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">android</span>
+<span class="">Android App</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-subtle font-body">
+<p class="">© 2025 PadelHub Technologies Inc. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors" href="#">Court Guidelines</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Interactive JavaScript -->
+<script>
+    (function initCourtBooking() {
+      // Date Tabs Selection
+      const dateTabs = document.querySelectorAll('.date-tab');
+      dateTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          dateTabs.forEach(t => {
+            t.className = 'date-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium whitespace-nowrap bg-[#1e293b] border border-[#334155] text-text-muted hover:text-white hover:border-slate-500 transition-all';
+          });
+          tab.className = 'date-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap bg-lime-accent text-lime-dark transition-all shadow-sm';
+        });
+      });
+
+      // Filter Chips Selection
+      const filters = document.querySelectorAll('.court-filter');
+      filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filters.forEach(f => {
+            f.className = 'court-filter px-3.5 py-1.5 rounded-lg text-xs font-medium bg-[#1e293b] border border-[#334155] text-text-muted hover:text-white transition-all';
+          });
+          btn.className = 'court-filter px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-[#0f172a] transition-all';
+        });
+      });
+
+      // Time Slot Interactive Selection
+      const slotPills = document.querySelectorAll('.slot-pill');
+      slotPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          slotPills.forEach(p => {
+            p.className = 'slot-pill py-2 px-1 rounded-lg bg-[#0f172a] border border-[#334155] text-slate-300 hover:text-white hover:border-slate-400 transition-all text-center';
+          });
+          pill.className = 'slot-pill py-2 px-1 rounded-lg bg-lime-accent text-lime-dark font-bold shadow-sm transition-all text-center';
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>
