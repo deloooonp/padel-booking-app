@@ -15,16 +15,19 @@ const satoshi = localFont({
 
 export const metadata: Metadata = {
   title: "PadelHub - Play Padel Anytime, Anywhere",
-  description: "Book courts, discover clubs and join tournaments — all in one smart platform designed for the global padel community.",
+  description:
+    "Book courts, discover clubs and join tournaments — all in one smart platform designed for the global padel community.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${clash.variable} ${satoshi.variable} h-full antialiased dark scroll-smooth`}
+      className={`${clash.variable} ${satoshi.variable} dark h-full scroll-smooth antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-navy text-white selection:bg-lime selection:text-black">{children}</body>
+      <body className="bg-navy selection:bg-lime flex min-h-full flex-col text-white selection:text-black">
+        {children}
+      </body>
     </html>
   );
 }

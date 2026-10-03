@@ -37,7 +37,7 @@ export function ClubsSection() {
 
   return (
     <section
-      className="border-t border-white/5 bg-navy py-24"
+      className="bg-navy border-t border-white/5 py-24"
       data-purpose="clubs-directory"
       id="clubs"
     >
@@ -53,7 +53,7 @@ export function ClubsSection() {
             </p>
           </div>
           <Link
-            className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-gray-300 transition-colors hover:text-lime md:mt-0"
+            className="hover:text-lime mt-4 flex items-center gap-1.5 text-sm font-semibold text-gray-300 transition-colors md:mt-0"
             href="#clubs"
           >
             <span>View all clubs</span>
@@ -69,18 +69,18 @@ export function ClubsSection() {
             >
               <div className="flex min-w-[260px] items-center gap-3">
                 <h3 className="text-base font-bold text-white">{club.name}</h3>
-                <span className="flex items-center gap-1 text-xs font-semibold text-lime">
+                <span className="text-lime flex items-center gap-1 text-xs font-semibold">
                   <Star className="h-2.5 w-2.5 fill-current" /> {club.rating}
                 </span>
               </div>
               <div className="min-w-[140px] text-xs text-gray-400">
-                <span className="block text-[10px] font-bold uppercase text-gray-500">
+                <span className="block text-[10px] font-bold text-gray-500 uppercase">
                   Location
                 </span>
                 {club.location}
               </div>
               <div className="min-w-[100px] text-xs text-gray-400">
-                <span className="block text-[10px] font-bold uppercase text-gray-500">
+                <span className="block text-[10px] font-bold text-gray-500 uppercase">
                   Courts
                 </span>
                 {club.courts}
@@ -94,7 +94,7 @@ export function ClubsSection() {
                   <ArrowRight className="h-2.5 w-2.5" />
                 </Link>
                 <Link
-                  className="flex items-center gap-1.5 rounded-full bg-lime px-4 py-2 text-xs font-bold text-gray-950 transition-all hover:bg-lime-hover"
+                  className="bg-lime hover:bg-lime-hover flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold text-gray-950 transition-all"
                   href="#"
                 >
                   <span>Book a Court</span>

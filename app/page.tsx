@@ -5,6 +5,7 @@ import { StatsSection } from "@/components/sections/stats";
 import { ThreeStepsSection } from "@/components/sections/three-steps";
 import { CourtBookingFeature } from "@/components/sections/court-booking-feature";
 import { ClubsSection } from "@/components/sections/clubs";
+import { Button } from "@/components/ui/button";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
         <ThreeStepsSection />
         <CourtBookingFeature />
         <ClubsSection />
+        <Button>Hello!</Button>
       </main>
       <Footer />
     </>

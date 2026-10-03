@@ -6,31 +6,43 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-4">
           <div className="md:col-span-1">
-            <Link className="text-2xl font-black tracking-tight text-white" href="#">
+            <Link
+              className="text-2xl font-black tracking-tight text-white"
+              href="#"
+            >
               Padel<span className="text-lime">Hub</span>
             </Link>
             <p className="mt-4 text-xs leading-relaxed text-gray-500">
-              The world&apos;s leading community and smart court booking platform for
-              padel enthusiasts, clubs, and organizers.
+              The world&apos;s leading community and smart court booking
+              platform for padel enthusiasts, clubs, and organizers.
             </p>
           </div>
           <div>
-            <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-white">
+            <h4 className="mb-4 text-xs font-bold tracking-wider text-white uppercase">
               Quick Links
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link className="transition-colors hover:text-white" href="#book">
+                <Link
+                  className="transition-colors hover:text-white"
+                  href="#book"
+                >
                   Book Court
                 </Link>
               </li>
               <li>
-                <Link className="transition-colors hover:text-white" href="#clubs">
+                <Link
+                  className="transition-colors hover:text-white"
+                  href="#clubs"
+                >
                   Explore Clubs
                 </Link>
               </li>
               <li>
-                <Link className="transition-colors hover:text-white" href="#tournaments">
+                <Link
+                  className="transition-colors hover:text-white"
+                  href="#tournaments"
+                >
                   Active Tournaments
                 </Link>
               </li>
@@ -42,7 +54,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-white">
+            <h4 className="mb-4 text-xs font-bold tracking-wider text-white uppercase">
               For Clubs
             </h4>
             <ul className="space-y-2.5 text-xs">
@@ -69,7 +81,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-white">
+            <h4 className="mb-4 text-xs font-bold tracking-wider text-white uppercase">
               Stay Connected
             </h4>
             <p className="mb-4 text-xs text-gray-500">
@@ -77,11 +89,11 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-2">
               <input
-                className="w-full rounded-full border border-white/10 bg-surface-card px-4 py-2 text-xs text-white focus:border-lime focus:outline-none"
+                className="bg-surface-card focus:border-lime w-full rounded-full border border-white/10 px-4 py-2 text-xs text-white focus:outline-none"
                 placeholder="Enter your email"
                 type="email"
               />
-              <button className="rounded-full bg-lime px-4 py-2 text-xs font-bold text-gray-950 transition-colors hover:bg-lime-hover">
+              <button className="bg-lime hover:bg-lime-hover rounded-full px-4 py-2 text-xs font-bold text-gray-950 transition-colors">
                 Join
               </button>
             </div>

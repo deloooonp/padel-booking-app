@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 border-b border-surface-border/50 bg-navy/80 backdrop-blur-md">
+    <header className="border-surface-border/50 bg-navy/80 fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         {/* Logo */}
         <Link
@@ -10,24 +10,36 @@ export function Header() {
           href="#"
         >
           <span>
-            Padel<span className="text-lime transition-colors group-hover:text-white">Hub</span>
+            Padel
+            <span className="text-lime transition-colors group-hover:text-white">
+              Hub
+            </span>
           </span>
         </Link>
         {/* Desktop Nav Links */}
         <nav className="hidden items-center space-x-8 text-sm font-medium text-gray-300 md:flex">
-          <Link className="text-white transition-colors hover:text-lime" href="#book">
+          <Link
+            className="hover:text-lime text-white transition-colors"
+            href="#book"
+          >
             Book a Court
           </Link>
-          <Link className="transition-colors hover:text-lime" href="#clubs">
+          <Link className="hover:text-lime transition-colors" href="#clubs">
             Clubs
           </Link>
-          <Link className="transition-colors hover:text-lime" href="#tournaments">
+          <Link
+            className="hover:text-lime transition-colors"
+            href="#tournaments"
+          >
             Tournaments
           </Link>
-          <Link className="transition-colors hover:text-lime" href="#membership">
+          <Link
+            className="hover:text-lime transition-colors"
+            href="#membership"
+          >
             Membership
           </Link>
-          <Link className="transition-colors hover:text-lime" href="#contact">
+          <Link className="hover:text-lime transition-colors" href="#contact">
             Contact
           </Link>
         </nav>

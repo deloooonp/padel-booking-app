@@ -33,13 +33,13 @@ export function ThreeStepsSection() {
               </h3>
             </div>
             <div className="absolute right-6 bottom-6 left-6">
-              <span className="mb-2 inline-block rounded bg-lime px-3 py-1.5 text-xs font-semibold text-gray-950">
+              <span className="bg-lime mb-2 inline-block rounded px-3 py-1.5 text-xs font-semibold text-gray-950">
                 Browse nearby clubs and discover courts available in your area.
               </span>
             </div>
           </div>
           {/* Step 2 */}
-          <div className="group relative h-[480px] overflow-hidden rounded-2xl bg-lime shadow-lg transition-transform duration-300 hover:-translate-y-1">
+          <div className="group bg-lime relative h-[480px] overflow-hidden rounded-2xl shadow-lg transition-transform duration-300 hover:-translate-y-1">
             <Image
               alt="Padel Tennis Ball"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -54,7 +54,7 @@ export function ThreeStepsSection() {
               </h3>
             </div>
             <div className="absolute right-6 bottom-6 left-6">
-              <span className="mb-2 inline-block rounded bg-lime px-3 py-1.5 text-xs font-semibold text-gray-950">
+              <span className="bg-lime mb-2 inline-block rounded px-3 py-1.5 text-xs font-semibold text-gray-950">
                 Choose the date and time that works best for you.
               </span>
             </div>
@@ -75,7 +75,7 @@ export function ThreeStepsSection() {
               </h3>
             </div>
             <div className="absolute right-6 bottom-6 left-6">
-              <span className="mb-2 inline-block rounded bg-lime px-3 py-1.5 text-xs font-semibold text-gray-950">
+              <span className="bg-lime mb-2 inline-block rounded px-3 py-1.5 text-xs font-semibold text-gray-950">
                 Invite friends, meet new players and enjoy the game.
               </span>
             </div>

@@ -27,11 +27,11 @@ export function StatsSection() {
           </div>
           {/* Pillar Tennis Ball Animation Visual */}
           <div className="relative order-1 flex h-72 w-28 flex-col items-center justify-end md:order-2">
-            <div className="h-56 w-16 rounded-full bg-linear-to-t from-lime via-lime/50 to-transparent opacity-90 blur-[1px]" />
+            <div className="from-lime via-lime/50 h-56 w-16 rounded-full bg-linear-to-t to-transparent opacity-90 blur-[1px]" />
             {/* Animated bouncing visual padel ball */}
-            <div className="relative z-10 -mt-10 flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-lime shadow-[0_10px_30px_rgba(200,241,53,0.6)]">
+            <div className="bg-lime relative z-10 -mt-10 flex h-20 w-20 items-center justify-center rounded-full border-4 border-white shadow-[0_10px_30px_rgba(200,241,53,0.6)]">
               <svg
-                className="h-14 w-14 fill-none stroke-white/80 stroke-[6]"
+                className="h-14 w-14 fill-none stroke-white/80 stroke-6"
                 viewBox="0 0 100 100"
               >
                 <circle
