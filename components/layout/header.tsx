@@ -51,7 +51,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             className="rounded-full px-4 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white"
-            href="#"
+            href="/login"
           >
             Log In
           </Link>

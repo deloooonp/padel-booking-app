@@ -79,6 +79,7 @@ keep a custom element and say so in the report.
 2. Not installed, but shadcn has a component that can reproduce the SAME look and layout:
    use the shadcn MCP to search and add it. Never hand-write a shadcn component. If you cannot install it yourself, Stop and tell me to install which component myself.
    If the closest shadcn component would force any layout change, skip to step 3.
+   Before using a shadcn component, call get_item_examples_from_registries for correct usage. After adding components, call get_audit_checklist and follow it.
 3. Nothing fits: create a new component composed from shadcn primitives and tokens.
 
 ## Step 4: Conversion details
