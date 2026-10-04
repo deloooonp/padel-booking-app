@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, ChevronDown, Verified, ArrowRight, User } from "lucide-react";
+import { MapPin, ChevronDown, Verified, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { COURTS, VENUES, DATES, FILTERS } from "@/lib/mock-data";
 import Image from "next/image";

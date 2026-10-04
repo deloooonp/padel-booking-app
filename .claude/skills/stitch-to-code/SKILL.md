@@ -64,20 +64,20 @@ keep a custom element and say so in the report.
 
 ## Step 2: Extract components
 
-- components/layout: header/navbar, footer, sidebar, page shells
-- components/sections: large page blocks
-- components/common: atoms and molecules (badge, stat card, booking card, ...)
-- The page file under app/ composes them.
-  Extract only when a pattern repeats (2+ times, in this page or across pages) or is a layout/section.
-  One-offs stay inline in the page. Hardcoded text and data become props or constants in
-  lib/mock-data.ts.
+- Used by ONE route: put it in that route's `_components/` folder (e.g. app/book/_components/).
+- Used by 2+ routes: components/sections (large blocks) or components/common (atoms).
+- components/layout: navbar, footer, sidebar, page shells. components/ui: shadcn only.
+- The page file composes them.
+  Extract only when a pattern repeats (2+ times) or is a layout/section.
+  One-offs stay inline. Hardcoded text and data become props or constants in lib/mock-data.ts.
+- If a section later gets a second user, move it to components/ and fix imports.
 
 ## Step 3: Component priority (check in order, before writing anything new)
 
 1. Already exists in components/** (including installed shadcn in components/ui):
    reuse it. Extend via props/className, do not duplicate.
 2. Not installed, but shadcn has a component that can reproduce the SAME look and layout:
-   use the shadcn MCP to search and add it. Never hand-write a shadcn component.
+   use the shadcn MCP to search and add it. Never hand-write a shadcn component. If you cannot install it yourself, Stop and tell me to install which component myself.
    If the closest shadcn component would force any layout change, skip to step 3.
 3. Nothing fits: create a new component composed from shadcn primitives and tokens.
 
