@@ -19,16 +19,15 @@ export function Header() {
   return (
     <header className="border-surface-border/70 bg-navy/95 fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
         <Link
           className="font-heading flex items-center gap-1.5 text-2xl font-bold tracking-tight uppercase select-none"
           href="/"
         >
-          <span className="text-white">Padel</span>
-          <span className="text-lime">Hub</span>
+          <span className="text-white">
+            Padel<span className="text-lime">Hub</span>
+          </span>
         </Link>
 
-        {/* Desktop Nav Links */}
         <nav className="border-surface-border bg-surface-card hidden items-center gap-1 rounded-full border px-2 py-1.5 text-sm font-medium lg:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -40,7 +39,7 @@ export function Header() {
                   "rounded-full px-4 py-1.5 transition-all",
                   isActive
                     ? "bg-lime font-semibold text-black shadow-sm"
-                    : "text-muted-foreground hover:text-white",
+                    : "text-muted-foreground hover:bg-lime/80 hover:text-black",
                 )}
               >
                 {link.name}
@@ -49,7 +48,6 @@ export function Header() {
           })}
         </nav>
 
-        {/* Auth Actions */}
         <div className="flex items-center gap-3">
           <Link
             className="rounded-full px-4 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white"

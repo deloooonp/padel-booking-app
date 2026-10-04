@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { Button, buttonVariants } from "./button";
+import { buttonVariants } from "./button";
 
 describe("Button", () => {
   it("applies variant class", () => {

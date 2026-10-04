@@ -19,7 +19,11 @@ export const metadata: Metadata = {
     "Book courts, discover clubs and join tournaments — all in one smart platform designed for the global padel community.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
