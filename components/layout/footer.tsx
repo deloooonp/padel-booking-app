@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "../common/logo";
 
 export function Footer() {
   return (
@@ -6,12 +7,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-4">
           <div className="md:col-span-1">
-            <Link
-              className="text-2xl font-black tracking-tight text-white"
-              href="#"
-            >
-              Padel<span className="text-lime">Hub</span>
-            </Link>
+            <Logo className="pointer-events-none" />
             <p className="mt-4 text-xs leading-relaxed text-gray-500">
               The world&apos;s leading community and smart court booking
               platform for padel enthusiasts, clubs, and organizers.

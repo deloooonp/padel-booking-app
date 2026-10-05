@@ -77,7 +77,6 @@ export function RegisterForm() {
       <CardContent className="p-7 sm:p-9">
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className="gap-4">
-            {/* Full Name */}
             <Controller
               name="fullName"
               control={control}
@@ -108,7 +107,6 @@ export function RegisterForm() {
               )}
             />
 
-            {/* Email */}
             <Controller
               name="email"
               control={control}
@@ -140,7 +138,6 @@ export function RegisterForm() {
               )}
             />
 
-            {/* Phone */}
             <Controller
               name="phone"
               control={control}
@@ -152,23 +149,15 @@ export function RegisterForm() {
                   >
                     WhatsApp Phone Number
                   </FieldLabel>
-                  <div className="flex items-center gap-2">
-                    <div className="bg-navy border-surface-border flex shrink-0 items-center gap-1.5 rounded-xl border px-3 py-2.5 text-sm text-white shadow-inner">
-                      <span className="text-base">🇮🇩</span>
-                      <span className="text-muted-foreground text-xs font-semibold tracking-wider">
-                        +62
-                      </span>
-                    </div>
-                    <div className="relative flex flex-1 items-center">
-                      <Phone className="text-muted-foreground pointer-events-none absolute left-3.5 h-5 w-5" />
-                      <Input
-                        {...field}
-                        id="phone"
-                        type="tel"
-                        placeholder="812-3456-7890"
-                        className="bg-navy border-surface-border focus:border-lime pl-11 text-white placeholder-slate-500"
-                      />
-                    </div>
+                  <div className="relative flex flex-1 items-center">
+                    <Phone className="text-muted-foreground pointer-events-none absolute left-3.5 h-5 w-5" />
+                    <Input
+                      {...field}
+                      id="phone"
+                      type="tel"
+                      placeholder="812-3456-7890"
+                      className="bg-navy border-surface-border focus:border-lime pl-11 text-white placeholder-slate-500"
+                    />
                   </div>
                   {fieldState.invalid && (
                     <FieldError
@@ -180,7 +169,6 @@ export function RegisterForm() {
               )}
             />
 
-            {/* Password */}
             <Controller
               name="password"
               control={control}
@@ -223,7 +211,6 @@ export function RegisterForm() {
               )}
             />
 
-            {/* Confirm Password */}
             <Controller
               name="confirmPassword"
               control={control}
@@ -255,7 +242,6 @@ export function RegisterForm() {
               )}
             />
 
-            {/* Terms */}
             <Controller
               name="terms"
               control={control}
@@ -273,14 +259,14 @@ export function RegisterForm() {
                     className="text-muted-foreground cursor-pointer text-xs leading-relaxed"
                     htmlFor="terms"
                   >
-                    I agree to the{" "}
+                    I agree to the
                     <Link
                       href="#"
                       className="hover:text-lime font-medium text-white underline"
                     >
                       Terms of Service
-                    </Link>{" "}
-                    and{" "}
+                    </Link>
+                    and
                     <Link
                       href="#"
                       className="hover:text-lime font-medium text-white underline"
@@ -310,9 +296,9 @@ export function RegisterForm() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter className="border-surface-border/50 mt-2 border-t pt-5 text-center">
-        <p className="text-muted-foreground text-xs">
-          Already have an account?{" "}
+      <CardFooter className="border-surface-border/50flex justify-center border-t">
+        <p className="text-muted-foreground text-sm">
+          Already have an account?
           <Link
             href="/login"
             className="text-lime ml-1 font-semibold hover:underline"

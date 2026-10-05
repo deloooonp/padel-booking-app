@@ -190,9 +190,9 @@ export function LoginForm() {
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter className="border-surface-border/50 mt-6 border-t pt-5 text-center">
-        <p className="text-muted-foreground text-xs">
-          Belum punya akun?{" "}
+      <CardFooter className="border-surface-border/50 border-ttext-center flex justify-center">
+        <p className="text-muted-foreground text-sm">
+          Belum punya akun?
           <Link
             href="/register"
             className="text-lime ml-1 font-semibold hover:underline"

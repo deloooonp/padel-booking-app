@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Logo } from "../common/logo";
 
 export function Header() {
   const pathname = usePathname();
@@ -19,14 +20,7 @@ export function Header() {
   return (
     <header className="border-surface-border/70 bg-navy/95 fixed top-0 right-0 left-0 z-50 border-b backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Link
-          className="font-heading flex items-center gap-1.5 text-2xl font-bold tracking-tight uppercase select-none"
-          href="/"
-        >
-          <span className="text-white">
-            Padel<span className="text-lime">Hub</span>
-          </span>
-        </Link>
+        <Logo />
 
         <nav className="border-surface-border bg-surface-card hidden items-center gap-1 rounded-full border px-2 py-1.5 text-sm font-medium lg:flex">
           {navLinks.map((link) => {
